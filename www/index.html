@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html  lang="es" data-ng-app="Aplicacion">
+<head>
+	<meta charset="utf-8">
+	<title>Ultimas Noticias</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Dependencias de Ionic -->
+	<link rel="stylesheet" type="text/css" href="lib/ionic/css/ionic.css">
+	<script type="text/javascript" src="lib/ionic/js/ionic.bundle.js"></script>
+	<!-- Aplicacion -->
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type="text/javascript" src="js/app.js"></script>
+</head>
+<body data-ng-controller="Aplicacion">
+	<ion-header-bar class="bar-balanced">
+		<h1 class="title">Ultimas Noticias</h1>
+		<button class="button" data-ng-click="refrescar()">
+			<i class="icon ion-refresh"></i>
+		</button>
+	</ion-header-bar>
+	<ion-content>
+		<ion-refresher on-refresh="refrescar()"></ion-refresher>
+		<div class="list card" data-ng-repeat="post in posts">
+  			<div class="item item-avatar">
+    			<img data-ng-src="{{ post.author.avatar_URL }}">
+    			<h2>{{ post.author.nice_name }}</h2>
+    			<p><a href="{{ post.author.URL }}">{{ post.author.URL }}</a></p>
+  			</div>
+  			<div class="item item-body">
+	    		<h2>{{ post.title }}</h2>
+	    		<div data-ng-bind-html="post.content">
+	    		</div>
+  			</div>
+		</div>
+	</ion-content>
+</body>
+</html>

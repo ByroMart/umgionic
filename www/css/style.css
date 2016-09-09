@@ -1,0 +1,9 @@
+/* Empty. Add your own CSS if you like */
+.item .item-avatar-left {
+	border-radius: 50%;
+}
+
+.item .item-body img {
+	max-width: 100% !important;
+	max-height: 100% !important;
+}
